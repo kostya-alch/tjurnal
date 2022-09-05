@@ -1,0 +1,43 @@
+.root {
+  display: flex;
+  align-items: center;
+  background-color: #fff4e2 !important;
+  padding: 0 20px;
+  height: 60px;
+}
+
+.logo {
+  width: 30px;
+  height: 40px;
+  margin: 0 20px 0 10px;
+}
+
+.searchBlock {
+  position: relative;
+
+  :global {
+    svg {
+      position: absolute;
+      top: 7px;
+      left: 11px;
+      opacity: 0.4;
+    }
+
+    input {
+      width: 240px;
+      height: 38px;
+      background-color: rgba(0, 0, 0, 0.05);
+      border-radius: 10px;
+      font-size: 16px;
+      padding-left: 40px;
+      transition: all 0.2s ease-in-out;
+      border: 1px solid transparent;
+
+      &:hover, &:focus {
+        background-color: #fff;
+        border-color: darken(#fff4e2, 15%);
+        box-shadow: 0 0 03px rgb(229 160 64 / 12%);
+      }
+    }
+  }
+}
