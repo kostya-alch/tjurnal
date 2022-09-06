@@ -1,19 +1,27 @@
 .root {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   background-color: #fff4e2 !important;
   padding: 0 20px;
   height: 60px;
 }
 
+.penButton {
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+}
+
 .logo {
-  width: 30px;
-  height: 40px;
+  width: 31px;
+  height: 34px;
   margin: 0 20px 0 10px;
 }
 
 .searchBlock {
   position: relative;
+  margin-right: 13px;
 
   :global {
     svg {
@@ -32,6 +40,7 @@
       padding-left: 40px;
       transition: all 0.2s ease-in-out;
       border: 1px solid transparent;
+
 
       &:hover, &:focus {
         background-color: #fff;

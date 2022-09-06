@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Button, IconButton, Paper } from '@material-ui/core';
+import { Avatar, Button, IconButton, Paper } from '@material-ui/core';
 import Link from 'next/link';
 import SearchIcon from '@material-ui/icons/Search';
 import CreateIcon from '@material-ui/icons/Create';
@@ -26,7 +26,7 @@ export const Header: FC = () => {
           <input placeholder={'Поиск'} />
         </div>
 
-        <Button>
+        <Button className={styles.penButton} variant="contained">
           <CreateIcon />
         </Button>
       </div>
@@ -38,6 +38,11 @@ export const Header: FC = () => {
           {' '}
           <NotificationIcon />
         </IconButton>
+        <Avatar
+          className="ml-10"
+          alt="Avatar"
+          src="https://avatars.mds.yandex.net/i?id=4244360699bdbcc1271a88a804f8c7be_l-4304678-images-thumbs&n=13"
+        />
       </div>
     </Paper>
   );
