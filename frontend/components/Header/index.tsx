@@ -6,6 +6,7 @@ import CreateIcon from '@material-ui/icons/Create';
 import MessageIcon from '@material-ui/icons/Textsms';
 import NotificationIcon from '@material-ui/icons/Notifications';
 import Menu from '@material-ui/icons/Menu';
+import { KeyboardArrowDownOutlined as ArrowBottom } from '@material-ui/icons';
 
 import styles from './Header.module.scss';
 
@@ -39,10 +40,11 @@ export const Header: FC = () => {
           <NotificationIcon />
         </IconButton>
         <Avatar
-          className="ml-10"
+          className="ml-10 mr-10"
           alt="Avatar"
           src="https://avatars.mds.yandex.net/i?id=4244360699bdbcc1271a88a804f8c7be_l-4304678-images-thumbs&n=13"
         />
+        <ArrowBottom />
       </div>
     </Paper>
   );

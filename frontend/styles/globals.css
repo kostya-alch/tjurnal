@@ -3,6 +3,7 @@ body {
     padding: 0;
     margin: 0;
     font-family: Roboto, Helvetica Neue, sans-serif;
+    background-color: rgb(242, 242, 242);
 }
 
 a {
@@ -14,4 +15,14 @@ a {
     box-sizing: border-box;
     outline: none;
     font-family: Roboto, Helvetica Neue, sans-serif;
+}
+
+.content {
+    max-width: 640px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.wrapper {
+    padding-top: 75px;
 }

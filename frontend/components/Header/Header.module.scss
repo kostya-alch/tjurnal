@@ -1,10 +1,14 @@
 .root {
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: #fff4e2 !important;
-  padding: 0 20px;
+  padding: 0 35px 0 10px;
   height: 60px;
+  margin-bottom: 14px;
+  width: 100%;
+  z-index: 1;
 }
 
 .penButton {
@@ -32,7 +36,7 @@
     }
 
     input {
-      width: 240px;
+      width: 310px;
       height: 38px;
       background-color: rgba(0, 0, 0, 0.05);
       border-radius: 10px;
