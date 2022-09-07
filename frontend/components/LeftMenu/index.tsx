@@ -8,13 +8,14 @@ import {
   BrushOutlined as SubscribeIcon,
 } from '@material-ui/icons';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export const LeftMenu: FC = () => {
   const menu = [
     { text: 'Лента', icon: <FireIcon />, path: '/' },
-    { text: 'Сообщения', icon: <MessageIcon />, path: '/' },
-    { text: 'Рейтинг RJ', icon: <TrendingIcon />, path: '/' },
-    { text: 'Подписки', icon: <SubscribeIcon />, path: '/' },
+    { text: 'Сообщения', icon: <MessageIcon />, path: '/messages' },
+    { text: 'Рейтинг RJ', icon: <TrendingIcon />, path: '/rating' },
+    { text: 'Подписки', icon: <SubscribeIcon />, path: '/follows' },
   ];
 
   return (
@@ -22,10 +23,12 @@ export const LeftMenu: FC = () => {
       <ul>
         {menu.map((obj) => (
           <li key={obj.path}>
-            <Button>
-              {obj.icon}
-              {obj.text}
-            </Button>
+            <Link href={obj.path}>
+              <Button>
+                {obj.icon}
+                {obj.text}
+              </Button>
+            </Link>
           </li>
         ))}
       </ul>
