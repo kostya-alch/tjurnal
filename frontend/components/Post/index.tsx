@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 export const Post: FC = () => {
   return (
-    <Paper elevation={0} className="p-20">
+    <Paper elevation={0} className="p-20 mb-25">
       <Typography variant={'h5'} className={styles.title} classes={{ root: styles.paper }}>
         ЦБ ограничит продажу неквалифицированным инвесторам бумаг недружественных стран
       </Typography>

@@ -11,11 +11,6 @@
   z-index: 1;
 }
 
-.penButton {
-  width: 40px !important;
-  height: 40px !important;
-  min-width: 40px !important;
-}
 
 .logo {
   width: 31px;
@@ -23,9 +18,16 @@
   margin: 0 20px 0 10px;
 }
 
+.penButton {
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+}
+
 .searchBlock {
   position: relative;
   margin-right: 13px;
+  width: 310px;
 
   :global {
     svg {
@@ -36,7 +38,7 @@
     }
 
     input {
-      width: 310px;
+      width: 100%;
       height: 38px;
       background-color: rgba(0, 0, 0, 0.05);
       border-radius: 10px;
@@ -44,8 +46,7 @@
       padding-left: 40px;
       transition: all 0.2s ease-in-out;
       border: 1px solid transparent;
-
-
+      
       &:hover, &:focus {
         background-color: #fff;
         border-color: darken(#fff4e2, 15%);
