@@ -1,7 +1,7 @@
 import 'macro-css';
 import '../styles/globals.css';
 import { CssBaseline, ThemeProvider } from '@material-ui/core';
-import { theme } from '../theme';
+import { theme } from '../themes/theme';
 
 function MyApp({ Component, pageProps }) {
   return (
