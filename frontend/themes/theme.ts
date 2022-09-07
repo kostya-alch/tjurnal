@@ -1,6 +1,11 @@
 import { createTheme } from '@material-ui/core';
 
 export const theme = createTheme({
+  props: {
+    MuiButtonBase: {
+      disableRipple: true,
+    },
+  },
   palette: {
     primary: {
       main: '#46839d',
@@ -14,7 +19,8 @@ export const theme = createTheme({
         fontSize: '16px',
         transition: 'none',
         '&:active': {
-          boxShadow: '0 1px 1px rbg(0 0 0 / 15%), 0 4px 7px rgb(0 0 0 / 15%)',
+          boxShadow:
+            '0 1px 1px rgb(0 0 0 / 15%), 0 4px 7px rgb(0 0 0 / 0%), 0 -1px 0 rgb(0 0 0 / 5%), -1px 0 0 rgb(0 0 0 / 5%), 1px 0 0 rgb(0 0 0 / 5%) !important',
           transform: 'translateY(1px)',
         },
       },
@@ -30,7 +36,7 @@ export const theme = createTheme({
       containedPrimary: {
         backgroundColor: '#4683d9',
         '&:hover': {
-          backgroundColor: '#437cce',
+          backgroundColor: '#437CCE',
         },
       },
     },

@@ -7,7 +7,6 @@ import {
   TrendingUpOutlined as TrendingIcon,
   BrushOutlined as SubscribeIcon,
 } from '@material-ui/icons';
-import Image from 'next/image';
 import Link from 'next/link';
 
 export const LeftMenu: FC = () => {

@@ -1,8 +1,14 @@
 import { FC } from 'react';
 
 import styles from './Post.module.scss';
-import { Paper, Typography } from '@material-ui/core';
+import { IconButton, Paper, Typography } from '@material-ui/core';
 import Image from 'next/image';
+import {
+  ModeCommentOutlined as CommentIcon,
+  RepeatOutlined as RepostIcon,
+  BookmarkBorderOutlined as FavouriteIcon,
+  ShareOutlined as ShareIcon,
+} from '@material-ui/icons';
 
 export const Post: FC = () => {
   return (
@@ -19,6 +25,28 @@ export const Post: FC = () => {
         height={500}
         width={600}
       />
+      <ul className={styles.actions}>
+        <li>
+          <IconButton>
+            <CommentIcon />
+          </IconButton>
+        </li>
+        <li>
+          <IconButton>
+            <RepostIcon />
+          </IconButton>
+        </li>
+        <li>
+          <IconButton>
+            <FavouriteIcon />
+          </IconButton>
+        </li>
+        <li>
+          <IconButton>
+            <ShareIcon />
+          </IconButton>
+        </li>
+      </ul>
     </Paper>
   );
 };
