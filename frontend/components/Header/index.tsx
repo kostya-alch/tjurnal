@@ -39,12 +39,12 @@ export const Header: FC = () => {
           {' '}
           <NotificationIcon />
         </IconButton>
-        <Link href="/profile/1">
+        <Link href="/Profile/1">
           <a className="d-flex align-center">
             <Avatar
               className={styles.avatar}
               alt="Kostya"
-              src="https://leonardo.osnova.io/5ffeac9a-a0e5-5be6-98af-659bfaabd2a6/-/scale_crop/108x108/-/format/webp/"
+              src="https://avatars.mds.yandex.net/i?id=4244360699bdbcc1271a88a804f8c7be_l-4304678-images-thumbs&n=13"
             />
             <ArrowBottom />
           </a>

@@ -16,14 +16,14 @@ export default function Profile() {
           <div>
             <Avatar
               style={{ width: 120, height: 120, borderRadius: 6 }}
-              src="https://leonardo.osnova.io/5ffeac9a-a0e5-5be6-98af-659bfaabd2a6/-/scale_crop/108x108/-/format/webp/"
+              src="https://avatars.mds.yandex.net/i?id=4244360699bdbcc1271a88a804f8c7be_l-4304678-images-thumbs&n=13"
             />
             <Typography style={{ fontWeight: 'bold' }} className="mt-10" variant="h4">
-              Amon Bower
+              Константин Романов
             </Typography>
           </div>
           <div>
-            <Link href="/profile/settings">
+            <Link href="/Profile/settings">
               <Button
                 style={{ height: 42, minWidth: 45, width: 45, marginRight: 10 }}
                 variant="contained"
