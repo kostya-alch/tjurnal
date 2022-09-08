@@ -34,7 +34,7 @@ const items = [
   },
 ];
 
-export const SideComments = () => {
+export const SideComments: FC = () => {
   return (
     <div className={styles.root}>
       <h3>

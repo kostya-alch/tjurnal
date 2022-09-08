@@ -39,7 +39,7 @@ export const Header: FC = () => {
           {' '}
           <NotificationIcon />
         </IconButton>
-        <Link href="/Profile/1">
+        <Link href="/profile/1">
           <a className="d-flex align-center">
             <Avatar
               className={styles.avatar}

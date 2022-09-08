@@ -25,6 +25,15 @@ export default function Settings() {
             size={'small'}
             label={'Email'}
           />
+          <TextField
+            className={'mb-15'}
+            required
+            variant={'outlined'}
+            fullWidth
+            type={'password'}
+            size={'small'}
+            label={'Пароль'}
+          />
           <Divider className={'mt-15 mb-20'} />
           <Button color={'primary'} variant={'contained'}>
             Сохранить изменения
