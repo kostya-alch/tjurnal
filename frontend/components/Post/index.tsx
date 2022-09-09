@@ -9,12 +9,15 @@ import {
   BookmarkBorderOutlined as FavouriteIcon,
   ShareOutlined as ShareIcon,
 } from '@material-ui/icons';
+import Link from 'next/link';
 
 export const Post: FC = () => {
   return (
     <Paper elevation={0} className="p-20 mb-25">
       <Typography variant={'h5'} className={styles.title} classes={{ root: styles.paper }}>
-        ЦБ ограничит продажу неквалифицированным инвесторам бумаг недружественных стран
+        <Link href={'/news/test-123'}>
+          ЦБ ограничит продажу неквалифицированным инвесторам бумаг недружественных стран
+        </Link>
       </Typography>
       <Typography className="mb-15 mt-15">
         По данным ЦБ, зарубежные финансовые институты могут заблокировать возможность работы с

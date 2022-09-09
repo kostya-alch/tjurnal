@@ -1,5 +1,5 @@
 import 'macro-css';
-import '../styles/globals.css';
+import '../styles/globals.scss';
 import { CssBaseline, ThemeProvider } from '@material-ui/core';
 import { theme } from '../themes/theme';
 import Head from 'next/head';
