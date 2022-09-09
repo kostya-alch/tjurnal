@@ -15,3 +15,25 @@
   margin-bottom: 20px !important;
   font-size: 36px !important;
 }
+
+.userInfo {
+  display: flex;
+  align-items: center;
+
+  img {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    margin-right: 10px;
+  }
+
+  b {
+    font-size: 18px;
+    margin-right: 10px;
+  }
+
+  span {
+    font-size: 16px;
+    color: #2ea83a;
+  }
+}

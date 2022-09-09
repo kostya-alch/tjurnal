@@ -10,6 +10,7 @@ import {
   ShareOutlined as ShareIcon,
 } from '@material-ui/icons';
 import Link from 'next/link';
+import { PostIcons } from '../PostIcons';
 
 export const Post: FC = () => {
   return (
@@ -28,28 +29,7 @@ export const Post: FC = () => {
         height={500}
         width={600}
       />
-      <ul className={styles.actions}>
-        <li>
-          <IconButton>
-            <CommentIcon />
-          </IconButton>
-        </li>
-        <li>
-          <IconButton>
-            <RepostIcon />
-          </IconButton>
-        </li>
-        <li>
-          <IconButton>
-            <FavouriteIcon />
-          </IconButton>
-        </li>
-        <li>
-          <IconButton>
-            <ShareIcon />
-          </IconButton>
-        </li>
-      </ul>
+      <PostIcons />
     </Paper>
   );
 };
