@@ -13,7 +13,7 @@ import {
 } from '@material-ui/core';
 import { FollowButton } from '../components/UI/FollowButton';
 
-export default function Rating() {
+export default function Rating(): JSX.Element {
   return (
     <MainLayout hideComments>
       <Paper className={'p-20 p-20 pr-20 mb-20'} elevation={0}>

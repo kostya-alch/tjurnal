@@ -1,13 +1,14 @@
-import styles from './Comment.module.scss';
 import { IconButton, Menu, MenuItem, Typography } from '@material-ui/core';
 import { FC, useState } from 'react';
 import { MoreHoriz as MoreIcon } from '@material-ui/icons';
 
+import styles from './Comment.module.scss';
+
 interface CommentProps {
-  user: {
+  user?: {
     fullName: string;
   };
-  text: string;
+  text?: string;
 }
 
 export const Comment: FC<CommentProps> = ({ text, user }) => {

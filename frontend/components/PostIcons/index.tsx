@@ -1,4 +1,3 @@
-import styles from '../Post/Post.module.scss';
 import { IconButton } from '@material-ui/core';
 import {
   BookmarkBorderOutlined as FavouriteIcon,
@@ -7,6 +6,8 @@ import {
   ShareOutlined as ShareIcon,
 } from '@material-ui/icons';
 import { FC } from 'react';
+
+import styles from '../Post/Post.module.scss';
 
 export const PostIcons: FC = () => {
   return (

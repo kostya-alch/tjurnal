@@ -1,7 +1,7 @@
 import { MainLayout } from '../../layout/MainLayout';
 import { Button, Divider, Paper, TextField, Typography } from '@material-ui/core';
 
-export default function Settings() {
+export default function Settings(): JSX.Element {
   return (
     <MainLayout hideComments>
       <Paper className="p-20" elevation={0}>

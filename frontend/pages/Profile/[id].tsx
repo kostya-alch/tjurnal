@@ -8,7 +8,7 @@ import {
 import { Post } from '../../components/Post';
 import { MainLayout } from '../../layout/MainLayout';
 
-export default function Profile() {
+export default function Profile(): JSX.Element {
   return (
     <MainLayout contentFullWidth hideComments>
       <Paper className="pl-20 pr-20 pt-20 mb-30" elevation={0}>

@@ -1,16 +1,11 @@
 import { FC } from 'react';
 
-import styles from './Post.module.scss';
-import { IconButton, Paper, Typography } from '@material-ui/core';
+import { Paper, Typography } from '@material-ui/core';
 import Image from 'next/image';
-import {
-  ModeCommentOutlined as CommentIcon,
-  RepeatOutlined as RepostIcon,
-  BookmarkBorderOutlined as FavouriteIcon,
-  ShareOutlined as ShareIcon,
-} from '@material-ui/icons';
 import Link from 'next/link';
 import { PostIcons } from '../PostIcons';
+
+import styles from './Post.module.scss';
 
 export const Post: FC = () => {
   return (

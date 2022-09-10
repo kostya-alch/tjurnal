@@ -1,4 +1,3 @@
-import styles from './FullPost.module.scss';
 import {
   TextsmsOutlined as MessageIcon,
   PersonAddOutlined as PersonIcon,
@@ -6,6 +5,8 @@ import {
 import { Button, Paper, Typography } from '@material-ui/core';
 import { FC } from 'react';
 import { PostIcons } from '../PostIcons';
+
+import styles from './FullPost.module.scss';
 
 export const FullPost: FC = () => {
   return (
