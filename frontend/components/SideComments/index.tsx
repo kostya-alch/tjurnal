@@ -4,33 +4,45 @@ import { CommentItem } from '../CommentItem/';
 
 import styles from './SideComments.module.scss';
 
-const items = [
+export const comments = [
   {
+    id: 1,
     user: {
       fullName: 'Вася Пупкин',
+      avatarUrl:
+        'https://avatars.mds.yandex.net/i?id=4244360699bdbcc1271a88a804f8c7be_l-4304678-images-thumbs&n=13',
     },
+    createdAt: new Date().toString(),
     text: 'Теперь, каждое рабочее утро, после кровати, я перекладываюсь туда спать ещё на часок. Ну и…',
     post: {
       title: 'Какая у вас дома ванна?',
     },
   },
   {
+    id: 2,
     user: {
       fullName: 'Вася Пупкин',
+      avatarUrl:
+        'https://avatars.mds.yandex.net/i?id=4244360699bdbcc1271a88a804f8c7be_l-4304678-images-thumbs&n=13',
     },
     text: 'Теперь, каждое рабочее утро, после кровати, я перекладываюсь туда спать ещё на часок. Ну и…',
     post: {
       title: 'Какая у вас дома ванна?',
     },
+    createdAt: new Date().toString(),
   },
   {
+    id: 3,
     user: {
       fullName: 'Вася Пупкин',
+      avatarUrl:
+        'https://avatars.mds.yandex.net/i?id=4244360699bdbcc1271a88a804f8c7be_l-4304678-images-thumbs&n=13',
     },
     text: 'Теперь, каждое рабочее утро, после кровати, я перекладываюсь туда спать ещё на часок. Ну и…',
     post: {
       title: 'Какая у вас дома ванна?',
     },
+    createdAt: new Date().toString(),
   },
 ];
 
@@ -40,8 +52,8 @@ export const SideComments: FC = () => {
       <h3>
         Комментарии <ArrowRightIcon />
       </h3>
-      {items.map((obj) => (
-        <CommentItem {...obj} />
+      {comments.map((obj) => (
+        <CommentItem key={obj.id} {...obj} />
       ))}
     </div>
   );

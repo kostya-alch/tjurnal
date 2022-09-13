@@ -2,21 +2,14 @@ import { MainLayout } from '../../layout/MainLayout';
 import { Divider, Paper, Tab, Tabs, Typography } from '@material-ui/core';
 import { FullPost } from '../../components/FullPost';
 import { Comment } from '../../components/Comment';
+import { PostComments } from '../../components/PostComments';
+import { comments } from '../../components/SideComments';
 
-export default function News(): JSX.Element {
+export default function Post(): JSX.Element {
   return (
     <MainLayout contentFullWidth className={'mb-50'}>
       <FullPost />
-      <Paper elevation={0} className={'mt-40 p-30'}>
-        <Typography variant={'h6'}>42 комментария</Typography>
-        <Tabs className="mt-20" value={0} indicatorColor="primary" textColor="primary">
-          <Tab label="Популярные" />
-          <Tab label="По порядку" />
-        </Tabs>
-        <Divider />
-        <div className={'mb-20'} />
-        <Comment />
-      </Paper>
+      <PostComments items={comments} />
     </MainLayout>
   );
 }

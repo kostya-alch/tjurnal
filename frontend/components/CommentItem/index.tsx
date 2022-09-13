@@ -5,6 +5,7 @@ import styles from '../SideComments/SideComments.module.scss';
 interface CommentItemProps {
   user: {
     fullName: string;
+    avatarUrl: string;
   };
   text: string;
   post: {
@@ -16,10 +17,7 @@ export const CommentItem: FC<CommentItemProps> = ({ user, text, post }) => {
   return (
     <div className={styles.commentItem}>
       <div className={styles.userInfo}>
-        <img
-          alt={'logo'}
-          src="https://leonardo.osnova.io/598fc957-a3f6-598c-b6f9-a033c3941d12/-/scale_crop/64x64/-/format/webp/"
-        />
+        <img alt={'logo'} src={user.avatarUrl} />
         <a href="#">
           <b>{user.fullName}</b>
         </a>

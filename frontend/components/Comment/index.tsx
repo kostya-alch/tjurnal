@@ -5,13 +5,14 @@ import { MoreHoriz as MoreIcon } from '@material-ui/icons';
 import styles from './Comment.module.scss';
 
 interface CommentProps {
-  user?: {
+  user: {
     fullName: string;
   };
-  text?: string;
+  text: string;
+  createdAt: string;
 }
 
-export const Comment: FC<CommentProps> = ({ text, user }) => {
+export const Comment: FC<CommentProps> = ({ text, user, createdAt }) => {
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
@@ -29,13 +30,10 @@ export const Comment: FC<CommentProps> = ({ text, user }) => {
           src="https://leonardo.osnova.io/2d20257c-fec5-4b3e-7f60-055c86f24a4d/-/scale_crop/108x108/-/format/webp/"
           alt="Avatar"
         />
-        <b>Logan Poul</b>
-        <span>5 часов</span>
+        <b>{user.fullName}</b>
+        <span>{createdAt}</span>
       </div>
-      <Typography className={styles.text}>
-        По словам Рогова, ВСУ пытается прощупать оборону и ищет место, где подразделения могут
-        закрепиться на берегу и создать плацдарм для наступления.
-      </Typography>
+      <Typography className={styles.text}>{text}</Typography>
       <span className={styles.replyBtn}>Ответить</span>
       <IconButton onClick={handleClick}>
         <MoreIcon />
