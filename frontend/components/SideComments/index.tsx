@@ -1,60 +1,24 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import ArrowRightIcon from '@material-ui/icons/NavigateNextOutlined';
 import { CommentItem } from '../CommentItem/';
+import data from '../../mock/data.json';
 
 import styles from './SideComments.module.scss';
-
-export const comments = [
-  {
-    id: 1,
-    user: {
-      fullName: 'Вася Пупкин',
-      avatarUrl:
-        'https://avatars.mds.yandex.net/i?id=4244360699bdbcc1271a88a804f8c7be_l-4304678-images-thumbs&n=13',
-    },
-    createdAt: new Date().toString(),
-    text: 'Теперь, каждое рабочее утро, после кровати, я перекладываюсь туда спать ещё на часок. Ну и…',
-    post: {
-      title: 'Какая у вас дома ванна?',
-    },
-  },
-  {
-    id: 2,
-    user: {
-      fullName: 'Вася Пупкин',
-      avatarUrl:
-        'https://avatars.mds.yandex.net/i?id=4244360699bdbcc1271a88a804f8c7be_l-4304678-images-thumbs&n=13',
-    },
-    text: 'Теперь, каждое рабочее утро, после кровати, я перекладываюсь туда спать ещё на часок. Ну и…',
-    post: {
-      title: 'Какая у вас дома ванна?',
-    },
-    createdAt: new Date().toString(),
-  },
-  {
-    id: 3,
-    user: {
-      fullName: 'Вася Пупкин',
-      avatarUrl:
-        'https://avatars.mds.yandex.net/i?id=4244360699bdbcc1271a88a804f8c7be_l-4304678-images-thumbs&n=13',
-    },
-    text: 'Теперь, каждое рабочее утро, после кровати, я перекладываюсь туда спать ещё на часок. Ну и…',
-    post: {
-      title: 'Какая у вас дома ванна?',
-    },
-    createdAt: new Date().toString(),
-  },
-];
+import clsx from 'clsx';
 
 export const SideComments: FC = () => {
+  const [visibleComments, setVisibleComments] = useState(true);
+
+  const toggleComments = () => {
+    setVisibleComments(!visibleComments);
+  };
+
   return (
-    <div className={styles.root}>
-      <h3>
+    <div className={clsx(styles.root, !visibleComments && styles.rotated)}>
+      <h3 onClick={toggleComments}>
         Комментарии <ArrowRightIcon />
       </h3>
-      {comments.map((obj) => (
-        <CommentItem key={obj.id} {...obj} />
-      ))}
+      {visibleComments && data.comments.popular.map((obj) => <CommentItem key={obj.id} {...obj} />)}
     </div>
   );
 };

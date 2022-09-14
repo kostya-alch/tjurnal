@@ -3,13 +3,12 @@ import { Divider, Paper, Tab, Tabs, Typography } from '@material-ui/core';
 import { FullPost } from '../../components/FullPost';
 import { Comment } from '../../components/Comment';
 import { PostComments } from '../../components/PostComments';
-import { comments } from '../../components/SideComments';
 
 export default function Post(): JSX.Element {
   return (
     <MainLayout contentFullWidth className={'mb-50'}>
       <FullPost />
-      <PostComments items={comments} />
+      <PostComments />
     </MainLayout>
   );
 }

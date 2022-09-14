@@ -2,7 +2,7 @@
   width: 320px;
   margin-bottom: 2px;
   position: sticky;
-  top: 80px;
+  top: 90px;
   margin-left: 40px;
 
 
@@ -24,6 +24,16 @@
 
 .commentItem {
   margin-bottom: 25px;
+}
+
+.rotated {
+  width: 100px;
+  transform: rotate(-90deg) translateX(-50px);
+  transform-origin: right;
+
+  svg {
+    transform: rotate(270deg);
+  }
 }
 
 .userInfo {
