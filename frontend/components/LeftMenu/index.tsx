@@ -9,6 +9,7 @@ import {
 import Link from 'next/link';
 
 import styles from './LeftMenu.module.scss';
+import { useRouter } from 'next/router';
 
 export const LeftMenu: FC = () => {
   const menu = [
@@ -18,13 +19,15 @@ export const LeftMenu: FC = () => {
     { text: 'Подписки', icon: <SubscribeIcon />, path: '/follows' },
   ];
 
+  const router = useRouter();
+
   return (
     <div className={styles.menu}>
       <ul>
         {menu.map((obj) => (
           <li key={obj.path}>
             <Link href={obj.path}>
-              <Button>
+              <Button variant={router.asPath === obj.path ? 'contained' : 'text'}>
                 {obj.icon}
                 {obj.text}
               </Button>
