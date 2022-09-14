@@ -1,5 +1,15 @@
-import { FC } from 'react';
-import { Avatar, Button, IconButton, Paper } from '@material-ui/core';
+import { FC, useState } from 'react';
+import {
+  Avatar,
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  IconButton,
+  Paper,
+} from '@material-ui/core';
 import Link from 'next/link';
 import SearchIcon from '@material-ui/icons/Search';
 import CreateIcon from '@material-ui/icons/Create';
@@ -11,6 +21,15 @@ import { KeyboardArrowDownOutlined as ArrowBottom } from '@material-ui/icons';
 import styles from './Header.module.scss';
 
 export const Header: FC = () => {
+  const [open, setOpen] = useState<boolean>(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
     <Paper classes={{ root: styles.root }} elevation={0}>
       <div className="d-flex align-center">
@@ -35,7 +54,7 @@ export const Header: FC = () => {
         </Link>
       </div>
       <div className="d-flex align-center">
-        <IconButton>
+        <IconButton onClick={handleClickOpen}>
           <MessageIcon />
         </IconButton>
         <IconButton>
@@ -53,6 +72,23 @@ export const Header: FC = () => {
           </a>
         </Link>
       </div>
+      <Dialog open={open} onClose={handleClose} aria-labelledby="responsive-dialog-title">
+        <DialogTitle id="responsive-dialog-title">{"Use Google's location service?"}</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Let Google help apps determine location. This means sending anonymous location data to
+            Google, even when no apps are running.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button autoFocus onClick={handleClose}>
+            Disagree
+          </Button>
+          <Button onClick={handleClose} autoFocus>
+            Agree
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Paper>
   );
 };
