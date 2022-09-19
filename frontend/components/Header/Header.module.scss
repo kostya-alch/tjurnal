@@ -46,12 +46,29 @@
       padding-left: 40px;
       transition: all 0.2s ease-in-out;
       border: 1px solid transparent;
-      
+
       &:hover, &:focus {
         background-color: #fff;
         border-color: darken(#fff4e2, 15%);
         box-shadow: 0 0 03px rgb(229 160 64 / 12%);
       }
     }
+  }
+}
+
+.loginButton {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  margin-left: 15px;
+
+  svg {
+    margin-right: 10px;
+  }
+
+  &:hover {
+    color: #29b241;
   }
 }

@@ -18,6 +18,7 @@ import MessageIcon from '@material-ui/icons/Textsms';
 import NotificationIcon from '@material-ui/icons/Notifications';
 import Menu from '@material-ui/icons/Menu';
 import { KeyboardArrowDownOutlined as ArrowBottom } from '@material-ui/icons';
+import { AccountCircleOutlined as AccountIcon } from '@material-ui/icons';
 
 import styles from './Header.module.scss';
 import { AuthDialog } from '../AuthDialog';
@@ -25,11 +26,11 @@ import { AuthDialog } from '../AuthDialog';
 export const Header: FC = () => {
   const [open, setOpen] = useState<boolean>(false);
 
-  const handleClickOpen = () => {
+  const openAuthDialog = () => {
     setOpen(true);
   };
 
-  const handleClose = () => {
+  const closeAuthDialog = () => {
     setOpen(false);
   };
   return (
@@ -56,25 +57,28 @@ export const Header: FC = () => {
         </Link>
       </div>
       <div className="d-flex align-center">
-        <IconButton onClick={handleClickOpen}>
+        <IconButton>
           <MessageIcon />
         </IconButton>
         <IconButton>
           {' '}
           <NotificationIcon />
         </IconButton>
-        <Link href="/profile/1">
-          <a className="d-flex align-center">
-            <Avatar
-              className={styles.avatar}
-              alt="Kostya"
-              src="https://avatars.mds.yandex.net/i?id=4244360699bdbcc1271a88a804f8c7be_l-4304678-images-thumbs&n=13"
-            />
-            <ArrowBottom />
-          </a>
-        </Link>
+        {/*<Link href="/profile/1">*/}
+        {/*  <a className="d-flex align-center">*/}
+        {/*    <Avatar*/}
+        {/*      className={styles.avatar}*/}
+        {/*      alt="Kostya"*/}
+        {/*      src="https://avatars.mds.yandex.net/i?id=4244360699bdbcc1271a88a804f8c7be_l-4304678-images-thumbs&n=13"*/}
+        {/*    />*/}
+        {/*    <ArrowBottom />*/}
+        {/*  </a>*/}
+        {/*</Link>*/}
+        <div onClick={openAuthDialog} className={styles.loginButton}>
+          <AccountIcon /> Войти
+        </div>
       </div>
-      {open && <AuthDialog onClose={handleClose} authVisible={open} />}
+      {open && <AuthDialog onClose={closeAuthDialog} authVisible={open} />}
     </Paper>
   );
 };
