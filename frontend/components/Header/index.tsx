@@ -9,6 +9,7 @@ import {
   DialogTitle,
   IconButton,
   Paper,
+  Typography,
 } from '@material-ui/core';
 import Link from 'next/link';
 import SearchIcon from '@material-ui/icons/Search';
@@ -19,6 +20,7 @@ import Menu from '@material-ui/icons/Menu';
 import { KeyboardArrowDownOutlined as ArrowBottom } from '@material-ui/icons';
 
 import styles from './Header.module.scss';
+import { AuthDialog } from '../AuthDialog';
 
 export const Header: FC = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -72,23 +74,7 @@ export const Header: FC = () => {
           </a>
         </Link>
       </div>
-      <Dialog open={open} onClose={handleClose} aria-labelledby="responsive-dialog-title">
-        <DialogTitle id="responsive-dialog-title">{"Use Google's location service?"}</DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            Let Google help apps determine location. This means sending anonymous location data to
-            Google, even when no apps are running.
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button autoFocus onClick={handleClose}>
-            Disagree
-          </Button>
-          <Button onClick={handleClose} autoFocus>
-            Agree
-          </Button>
-        </DialogActions>
-      </Dialog>
+      {open && <AuthDialog onClose={handleClose} authVisible={open} />}
     </Paper>
   );
 };
