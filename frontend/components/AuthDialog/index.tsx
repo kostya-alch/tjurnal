@@ -44,7 +44,7 @@ export const AuthDialog: FC<AuthDialogProps> = ({ onClose, authVisible }) => {
               )}
             </Typography>
             {authType === 'main' && <Main onOpenLogin={() => setAuthType('login')} />}
-            {authType === 'login' && <Login onOpenLogin={() => setAuthType('register')} />}
+            {authType === 'login' && <Login onOpenRegister={() => setAuthType('register')} />}
             {authType === 'register' && (
               <Register
                 onOpenRegister={() => setAuthType('register')}

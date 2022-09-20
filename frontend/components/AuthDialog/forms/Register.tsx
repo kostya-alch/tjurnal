@@ -1,51 +1,46 @@
-import { FC } from 'react';
-import { Button, TextField } from '@material-ui/core';
+import React from 'react';
+import { Button } from '@material-ui/core';
+import { useForm, FormProvider } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { RegisterSchema } from '../../../utils/schemas/RegisterSchemaValidation';
+import { FormField } from '../../FormField';
 
-interface RegisterProps {
+interface LoginFormProps {
   onOpenRegister: () => void;
   onOpenLogin: () => void;
 }
 
-export const Register: FC<RegisterProps> = ({ onOpenRegister, onOpenLogin }) => {
+export const Register: React.FC<LoginFormProps> = ({ onOpenRegister, onOpenLogin }) => {
+  const form = useForm({
+    mode: 'onChange',
+    resolver: yupResolver(RegisterSchema),
+  });
+
+  const onSubmit = (data) => console.log(data);
+
   return (
     <div>
-      <form>
-        <TextField
-          className={'mb-15'}
-          required
-          variant={'outlined'}
-          fullWidth
-          type={'text'}
-          size={'small'}
-          label={'Имя и фамилия'}
-        />
-        <TextField
-          className={'mb-15'}
-          required
-          variant={'outlined'}
-          fullWidth
-          type={'email'}
-          size={'small'}
-          label={'Почта'}
-        />
-        <TextField
-          className={'mb-15'}
-          required
-          variant={'outlined'}
-          fullWidth
-          type={'password'}
-          size={'small'}
-          label={'Пароль'}
-        />
-        <div className="d-flex align-center justify-between">
-          <Button color={'primary'} variant={'contained'}>
-            Регистрация
-          </Button>
-          <Button onClick={onOpenLogin} color={'primary'} variant={'text'}>
-            Войти
-          </Button>
-        </div>
-      </form>
+      <FormProvider {...form}>
+        <FormField name="fullname" label="Имя и фамилия" />
+        <FormField name="email" label="Почта" />
+        <FormField name="password" label="Пароль" />
+        <form onSubmit={form.handleSubmit(onSubmit)}>
+          <div className="d-flex align-center justify-between">
+            <Button
+              disabled={!form.formState.isValid}
+              onClick={onOpenRegister}
+              type="submit"
+              color="primary"
+              variant="contained"
+            >
+              Зарегистрироваться
+            </Button>
+            <Button onClick={onOpenLogin} color="primary" variant="text">
+              Войти
+            </Button>
+          </div>
+        </form>
+      </FormProvider>
     </div>
   );
 };
