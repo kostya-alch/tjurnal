@@ -3,9 +3,10 @@ import { Button, TextField } from '@material-ui/core';
 
 interface RegisterProps {
   onOpenRegister: () => void;
+  onOpenLogin: () => void;
 }
 
-export const Register: FC<RegisterProps> = ({ onOpenRegister }) => {
+export const Register: FC<RegisterProps> = ({ onOpenRegister, onOpenLogin }) => {
   return (
     <div>
       <form>
@@ -14,9 +15,18 @@ export const Register: FC<RegisterProps> = ({ onOpenRegister }) => {
           required
           variant={'outlined'}
           fullWidth
+          type={'text'}
+          size={'small'}
+          label={'Имя и фамилия'}
+        />
+        <TextField
+          className={'mb-15'}
+          required
+          variant={'outlined'}
+          fullWidth
           type={'email'}
           size={'small'}
-          label={'Email'}
+          label={'Почта'}
         />
         <TextField
           className={'mb-15'}
@@ -29,10 +39,10 @@ export const Register: FC<RegisterProps> = ({ onOpenRegister }) => {
         />
         <div className="d-flex align-center justify-between">
           <Button color={'primary'} variant={'contained'}>
-            Войти
-          </Button>
-          <Button onClick={onOpenRegister} color={'primary'} variant={'text'}>
             Регистрация
+          </Button>
+          <Button onClick={onOpenLogin} color={'primary'} variant={'text'}>
+            Войти
           </Button>
         </div>
       </form>
