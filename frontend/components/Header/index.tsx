@@ -1,23 +1,11 @@
 import { FC, useState } from 'react';
-import {
-  Avatar,
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-  IconButton,
-  Paper,
-  Typography,
-} from '@material-ui/core';
+import { Button, IconButton, Paper } from '@material-ui/core';
 import Link from 'next/link';
 import SearchIcon from '@material-ui/icons/Search';
 import CreateIcon from '@material-ui/icons/Create';
 import MessageIcon from '@material-ui/icons/Textsms';
 import NotificationIcon from '@material-ui/icons/Notifications';
 import Menu from '@material-ui/icons/Menu';
-import { KeyboardArrowDownOutlined as ArrowBottom } from '@material-ui/icons';
 import { AccountCircleOutlined as AccountIcon } from '@material-ui/icons';
 
 import styles from './Header.module.scss';
