@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { FC, ReactNode } from 'react';
 import clsx from 'clsx';
 import { LeftMenu } from '../components/LeftMenu';
 import { SideComments } from '../components/SideComments';
@@ -11,7 +11,7 @@ interface MainLayoutProps {
   children: ReactNode;
 }
 
-export const MainLayout: React.FC<MainLayoutProps> = ({
+export const MainLayout: FC<MainLayoutProps> = ({
   children,
   contentFullWidth,
   hideComments,
