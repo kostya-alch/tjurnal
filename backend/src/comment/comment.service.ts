@@ -13,6 +13,7 @@ export class CommentService {
     return this.repository.save({
       text: dto.text,
       post: { id: dto.postId },
+      user: { id: 2 },
     });
   }
 
