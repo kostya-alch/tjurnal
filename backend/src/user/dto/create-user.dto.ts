@@ -1,4 +1,5 @@
 import { IsEmail, Length } from 'class-validator';
+import { UserEntity } from '../entities/user.entity';
 
 export class CreateUserDto {
   @Length(2)
