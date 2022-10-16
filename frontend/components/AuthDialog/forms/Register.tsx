@@ -24,14 +24,14 @@ export const Register: React.FC<LoginFormProps> = ({ onOpenRegister, onOpenLogin
       const response = await UserApi.register(data);
       console.log(response);
     } catch (e) {
-      console.warn(`Ошибка при регистрации: ${e}`);
+      console.warn(`Ошибка при регистрации: ${e.data}`);
     }
   };
 
   return (
     <div>
       <FormProvider {...form}>
-        <FormField name="fullname" label="Имя и фамилия" />
+        <FormField name="fullName" label="Имя и фамилия" />
         <FormField name="email" label="Почта" />
         <FormField name="password" label="Пароль" />
         <form onSubmit={form.handleSubmit(onSubmit)}>

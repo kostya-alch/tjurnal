@@ -2,7 +2,7 @@ import axios from 'axios';
 import { CreateUserDto, LoginDto } from './types';
 
 const instanceAxios = axios.create({
-  baseURL: 'http://localhost:3000/',
+  baseURL: 'http://localhost:4200/',
 });
 
 export const UserApi = {
