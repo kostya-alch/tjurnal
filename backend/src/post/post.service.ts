@@ -13,16 +13,16 @@ export class PostService {
     private repository: Repository<PostEntity>,
   ) {}
 
-  create(dto: CreatePostDto) {
-    return this.repository.save(dto);
-  }
-
   findAll() {
     return this.repository.find({
       order: {
         createdAt: 'DESC',
       },
     });
+  }
+
+  create(dto: CreatePostDto) {
+    return this.repository.save(dto);
   }
 
   async popular() {

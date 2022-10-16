@@ -4,6 +4,9 @@ import { useForm, FormProvider } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { RegisterSchema } from '../../../utils/schemas/RegisterSchemaValidation';
 import { FormField } from '../../FormField';
+import axios from 'axios';
+import { CreateUserDto } from '../../../api/types';
+import { UserApi } from '../../../api';
 
 interface LoginFormProps {
   onOpenRegister: () => void;
@@ -16,7 +19,14 @@ export const Register: React.FC<LoginFormProps> = ({ onOpenRegister, onOpenLogin
     resolver: yupResolver(RegisterSchema),
   });
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data: CreateUserDto) => {
+    try {
+      const response = await UserApi.register(data);
+      console.log(response);
+    } catch (e) {
+      console.warn(`Ошибка при регистрации: ${e}`);
+    }
+  };
 
   return (
     <div>
@@ -27,7 +37,7 @@ export const Register: React.FC<LoginFormProps> = ({ onOpenRegister, onOpenLogin
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <div className="d-flex align-center justify-between">
             <Button
-              disabled={!form.formState.isValid}
+              disabled={!form.formState.isValid || form.formState.isSubmitting}
               onClick={onOpenRegister}
               type="submit"
               color="primary"

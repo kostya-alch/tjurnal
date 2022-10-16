@@ -22,11 +22,11 @@ export class UserService {
     qb.take(dto.take || 10);
 
     if (dto.fullName) {
-      qb.andWhere(`u.tags ILIKE :fullname`);
+      qb.andWhere(`u.fullName ILIKE :fullname`);
     }
 
     if (dto.email) {
-      qb.andWhere(`u.tags ILIKE :email`);
+      qb.andWhere(`u.email ILIKE :email`);
     }
 
     qb.setParameters({

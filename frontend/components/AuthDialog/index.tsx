@@ -1,19 +1,11 @@
 import { FC, useState } from 'react';
-import {
-  Button,
-  Dialog,
-  DialogContent,
-  DialogContentText,
-  Divider,
-  TextField,
-  Typography,
-} from '@material-ui/core';
+import { Dialog, DialogContent, DialogContentText, Typography } from '@material-ui/core';
 import { ArrowBackIos as ArrowIcon } from '@material-ui/icons';
-
-import styles from './AuthDialog.module.scss';
 import { Main } from './forms/Main';
 import { Login } from './forms/Login';
 import { Register } from './forms/Register';
+
+import styles from './AuthDialog.module.scss';
 
 interface AuthDialogProps {
   onClose: () => void;
