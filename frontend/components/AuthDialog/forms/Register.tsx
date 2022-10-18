@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@material-ui/core';
 import { useForm, FormProvider } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -7,6 +7,7 @@ import { FormField } from '../../FormField';
 import { CreateUserDto } from '../../../api/types';
 import { UserApi } from '../../../api';
 import { setCookie } from 'nookies';
+import { Alert } from '@material-ui/lab';
 
 interface LoginFormProps {
   onOpenRegister: () => void;
@@ -14,6 +15,8 @@ interface LoginFormProps {
 }
 
 export const Register: React.FC<LoginFormProps> = ({ onOpenRegister, onOpenLogin }) => {
+  const [errorMessage, setErrorMessage] = useState<string>('');
+
   const form = useForm({
     mode: 'onChange',
     resolver: yupResolver(RegisterSchema),
@@ -23,8 +26,10 @@ export const Register: React.FC<LoginFormProps> = ({ onOpenRegister, onOpenLogin
     try {
       const response = await UserApi.register(dto);
       setCookie(null, 'authToken', response.token, { maxAge: 30 * 24 * 60 * 60, path: '/' });
+      setErrorMessage('');
     } catch (e) {
-      console.warn(`Ошибка при регистрации: ${e.data}`);
+      console.log(e.response.data.message);
+      if (e.response) setErrorMessage(e.response.data.message);
     }
   };
 
@@ -34,6 +39,11 @@ export const Register: React.FC<LoginFormProps> = ({ onOpenRegister, onOpenLogin
         <FormField name="fullName" label="Имя и фамилия" />
         <FormField name="email" label="Почта" />
         <FormField name="password" label="Пароль" />
+        {errorMessage && (
+          <Alert className="mb-20" severity="error">
+            {errorMessage}
+          </Alert>
+        )}
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <div className="d-flex align-center justify-between">
             <Button
