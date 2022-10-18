@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { Button } from '@material-ui/core';
+
 import styles from '../AuthDialog.module.scss';
 
 interface MainFormProps {

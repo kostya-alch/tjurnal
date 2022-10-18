@@ -4,9 +4,9 @@ import { useForm, FormProvider } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { RegisterSchema } from '../../../utils/schemas/RegisterSchemaValidation';
 import { FormField } from '../../FormField';
-import axios from 'axios';
 import { CreateUserDto } from '../../../api/types';
 import { UserApi } from '../../../api';
+import { setCookie } from 'nookies';
 
 interface LoginFormProps {
   onOpenRegister: () => void;
@@ -19,10 +19,10 @@ export const Register: React.FC<LoginFormProps> = ({ onOpenRegister, onOpenLogin
     resolver: yupResolver(RegisterSchema),
   });
 
-  const onSubmit = async (data: CreateUserDto) => {
+  const onSubmit = async (dto: CreateUserDto) => {
     try {
-      const response = await UserApi.register(data);
-      console.log(response);
+      const response = await UserApi.register(dto);
+      setCookie(null, 'authToken', response.token, { maxAge: 30 * 24 * 60 * 60, path: '/' });
     } catch (e) {
       console.warn(`Ошибка при регистрации: ${e.data}`);
     }

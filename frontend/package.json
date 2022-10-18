@@ -1,6 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
+  "author": "I am",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -13,11 +14,13 @@
     "@hookform/resolvers": "^2.9.8",
     "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",
+    "@material-ui/lab": "^4.0.0-alpha.61",
     "@types/yup": "^0.32.0",
     "axios": "^1.1.3",
     "clsx": "^1.2.1",
     "macro-css": "^1.0.5",
     "next": "12.2.5",
+    "nookies": "^2.5.2",
     "prettier": "^2.7.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
