@@ -1,11 +1,15 @@
-import 'macro-css';
-import '../styles/globals.scss';
 import { CssBaseline, ThemeProvider } from '@material-ui/core';
 import { theme } from '../themes/theme';
 import Head from 'next/head';
 import { Header } from '../components/Header';
+import { store } from '../store/store';
+import { Provider } from 'react-redux';
+import { AppProps } from 'next/app';
 
-function MyApp({ Component, pageProps }) {
+import 'macro-css';
+import '../styles/globals.scss';
+
+function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
@@ -19,11 +23,13 @@ function MyApp({ Component, pageProps }) {
           rel="stylesheet"
         />
       </Head>
-      <Header />
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <Provider store={store}>
+        <Header />
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </Provider>
     </>
   );
 }

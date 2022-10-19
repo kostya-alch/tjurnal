@@ -8,6 +8,8 @@ import { CreateUserDto } from '../../../api/types';
 import { UserApi } from '../../../api';
 import { setCookie } from 'nookies';
 import { Alert } from '@material-ui/lab';
+import { useAppDispatch } from '../../../store/hooks';
+import { setUserData } from '../../../store/slices/user/user';
 
 interface LoginFormProps {
   onOpenRegister: () => void;
@@ -16,7 +18,7 @@ interface LoginFormProps {
 
 export const Register: React.FC<LoginFormProps> = ({ onOpenRegister, onOpenLogin }) => {
   const [errorMessage, setErrorMessage] = useState<string>('');
-
+  const dispatch = useAppDispatch();
   const form = useForm({
     mode: 'onChange',
     resolver: yupResolver(RegisterSchema),
@@ -27,6 +29,7 @@ export const Register: React.FC<LoginFormProps> = ({ onOpenRegister, onOpenLogin
       const response = await UserApi.register(dto);
       setCookie(null, 'authToken', response.token, { maxAge: 30 * 24 * 60 * 60, path: '/' });
       setErrorMessage('');
+      dispatch(setUserData(response));
     } catch (e) {
       console.log(e.response.data.message);
       if (e.response) setErrorMessage(e.response.data.message);

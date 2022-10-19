@@ -8,6 +8,8 @@ import { Alert } from '@material-ui/lab';
 import { UserApi } from '../../../api';
 import { setCookie } from 'nookies';
 import { LoginDto } from '../../../api/types';
+import { useAppDispatch } from '../../../store/hooks';
+import { setUserData } from '../../../store/slices/user/user';
 
 interface LoginProps {
   onOpenRegister: () => void;
@@ -15,7 +17,7 @@ interface LoginProps {
 
 export const Login: FC<LoginProps> = ({ onOpenRegister }) => {
   const [errorMessage, setErrorMessage] = useState<string>('');
-
+  const dispatch = useAppDispatch();
   const form = useForm({
     mode: 'onChange',
     resolver: yupResolver(LoginSchema),
@@ -25,10 +27,11 @@ export const Login: FC<LoginProps> = ({ onOpenRegister }) => {
     try {
       const response = await UserApi.login(dto);
       setCookie(null, 'authToken', response.token, { maxAge: 30 * 24 * 60 * 60, path: '/' });
+      dispatch(setUserData(response));
       setErrorMessage('');
-    } catch (e) {
-      console.log(e.response.data.message);
-      if (e.response) setErrorMessage(e.response.data.message);
+    } catch (error) {
+      console.log(error.response.data.message);
+      if (error.response) setErrorMessage(error.response.data.message);
     }
   };
 
