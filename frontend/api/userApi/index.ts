@@ -15,7 +15,19 @@ export const UserApi = {
   },
 
   async login(dto: LoginDto) {
-    const { data } = await instanceAxios.post('auth/login', dto);
+    const { data } = await instanceAxios.post<CreateUserDto, { data: ResponseCreateUser }>(
+      'auth/login',
+      dto,
+    );
+    return data;
+  },
+  async getMe(token: string) {
+    const { data } = await instanceAxios.get<ResponseCreateUser>('users/me', {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
     return data;
   },
 };

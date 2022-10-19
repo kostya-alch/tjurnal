@@ -5,9 +5,9 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { LoginSchema } from '../../../utils/schemas/loginSchemaValidation';
 import { FormField } from '../../FormField';
 import { Alert } from '@material-ui/lab';
-import { UserApi } from '../../../api';
+import { UserApi } from '../../../api/userApi';
 import { setCookie } from 'nookies';
-import { LoginDto } from '../../../api/types';
+import { LoginDto } from '../../../api/userApi/types';
 import { useAppDispatch } from '../../../store/hooks';
 import { setUserData } from '../../../store/slices/user/user';
 
