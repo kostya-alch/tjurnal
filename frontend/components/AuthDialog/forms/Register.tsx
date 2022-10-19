@@ -30,9 +30,9 @@ export const Register: React.FC<LoginFormProps> = ({ onOpenRegister, onOpenLogin
       setCookie(null, 'authToken', response.token, { maxAge: 30 * 24 * 60 * 60, path: '/' });
       setErrorMessage('');
       dispatch(setUserData(response));
-    } catch (e) {
-      console.log(e.response.data.message);
-      if (e.response) setErrorMessage(e.response.data.message);
+    } catch (error) {
+      console.log(error.response.data.message);
+      if (error.response) setErrorMessage(error.response.data.message);
     }
   };
 

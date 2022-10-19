@@ -2,12 +2,12 @@ import React, { FC, useState } from 'react';
 import ArrowRightIcon from '@material-ui/icons/NavigateNextOutlined';
 import { CommentItem } from '../CommentItem/';
 import data from '../../mock/data.json';
-
-import styles from './SideComments.module.scss';
 import clsx from 'clsx';
 
+import styles from './SideComments.module.scss';
+
 export const SideComments: FC = () => {
-  const [visibleComments, setVisibleComments] = useState(true);
+  const [visibleComments, setVisibleComments] = useState<boolean>(true);
 
   const toggleComments = () => {
     setVisibleComments(!visibleComments);

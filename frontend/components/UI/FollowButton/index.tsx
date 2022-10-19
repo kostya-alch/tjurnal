@@ -6,7 +6,7 @@ import { CheckOutlined } from '@material-ui/icons';
 import styles from './FollowButton.module.scss';
 
 export const FollowButton: FC = () => {
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState<boolean>(false);
   return (
     <Button onClick={() => setChecked(!checked)} variant={'contained'} className={styles.followBtn}>
       {checked ? (

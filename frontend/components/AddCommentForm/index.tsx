@@ -4,8 +4,8 @@ import { Button, Input } from '@material-ui/core';
 import styles from './AddCommentForm.module.scss';
 
 export const AddCommentForm: FC = () => {
-  const [clickedFormComment, setClickedFormComment] = useState(false);
-  const [commentValue, setCommentValue] = useState('');
+  const [clickedFormComment, setClickedFormComment] = useState<boolean>(false);
+  const [commentValue, setCommentValue] = useState<string>('');
 
   const onAddComment = () => {
     setClickedFormComment(false);

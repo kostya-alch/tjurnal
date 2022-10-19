@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Button, Paper, Typography } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import {
   WhatshotOutlined as FireIcon,
   MarkunreadOutlined as MessageIcon,
@@ -7,9 +7,9 @@ import {
   BrushOutlined as SubscribeIcon,
 } from '@material-ui/icons';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import styles from './LeftMenu.module.scss';
-import { useRouter } from 'next/router';
 
 export const LeftMenu: FC = () => {
   const menu = [
