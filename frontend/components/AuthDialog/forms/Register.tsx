@@ -5,11 +5,11 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { RegisterSchema } from '../../../utils/schemas/RegisterSchemaValidation';
 import { FormField } from '../../FormField';
 import { CreateUserDto } from '../../../api/userApi/types';
-import { UserApi } from '../../../api/userApi';
 import { setCookie } from 'nookies';
 import { Alert } from '@material-ui/lab';
 import { useAppDispatch } from '../../../store/hooks';
 import { setUserData } from '../../../store/slices/user/user';
+import { Api } from '../../../api/userApi';
 
 interface LoginFormProps {
   onOpenRegister: () => void;
@@ -26,7 +26,7 @@ export const Register: React.FC<LoginFormProps> = ({ onOpenRegister, onOpenLogin
 
   const onSubmit = async (dto: CreateUserDto) => {
     try {
-      const response = await UserApi.register(dto);
+      const response = await Api().user.register(dto);
       setCookie(null, 'authToken', response.token, { maxAge: 30 * 24 * 60 * 60, path: '/' });
       setErrorMessage('');
       dispatch(setUserData(response));

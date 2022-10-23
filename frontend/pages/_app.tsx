@@ -8,8 +8,9 @@ import { wrapper } from '../store/store';
 import 'macro-css';
 import '../styles/globals.scss';
 import { parseCookies } from 'nookies';
-import { UserApi } from '../api/userApi';
+import { UserApi } from '../api/userApi/user';
 import { setUserData } from '../store/slices/user/user';
+import { Api } from '../api/userApi';
 
 function App({ Component, pageProps }: AppProps) {
   return (
@@ -39,7 +40,9 @@ export default wrapper.withRedux(App);
 const getInitialProps = wrapper.getInitialAppProps((store) => async ({ ctx, Component }) => {
   try {
     const { authToken } = parseCookies(ctx);
-    const userData = await UserApi.getMe(authToken);
+
+    const userData = await Api(ctx).user.getMe();
+
     store.dispatch(setUserData(userData));
   } catch (error) {
     console.log(error);

@@ -1,26 +1,30 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { Button, Input } from '@material-ui/core';
 import dynamic from 'next/dynamic';
 
 import styles from './WrireForm.module.scss';
 
 interface WriteFormProps {
-  title?: string;
+  data?: any;
 }
 
 const Editor = dynamic(() => import('../Editor').then((m) => m.Editor), { ssr: false });
 
-export const WriteForm: FC<WriteFormProps> = ({ title }) => {
+export const WriteForm: FC<WriteFormProps> = ({ data }) => {
+  const [blocks, setBlocks] = useState([]);
+
+  const [title, setTitle] = useState('');
   return (
     <div>
       <Input
+        value={title}
+        onChange={(event) => event.target.value}
         fullWidth
         classes={{ root: styles.titleField }}
         placeholder={'Заголовок'}
-        defaultValue={title}
       />
       <div className={styles.editor}>
-        <Editor />
+        <Editor onChange={(arr) => setBlocks(arr)} />
       </div>
       <Button style={{ height: 42 }} variant="contained" color="primary">
         Опубликовать

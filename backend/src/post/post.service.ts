@@ -22,7 +22,11 @@ export class PostService {
   }
 
   create(dto: CreatePostDto) {
-    return this.repository.save(dto);
+    return this.repository.save({
+      title: dto.title,
+      body: dto.body,
+      tags: dto.tags,
+    });
   }
 
   async popular() {

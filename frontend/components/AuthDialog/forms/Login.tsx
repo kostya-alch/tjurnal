@@ -5,11 +5,12 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { LoginSchema } from '../../../utils/schemas/loginSchemaValidation';
 import { FormField } from '../../FormField';
 import { Alert } from '@material-ui/lab';
-import { UserApi } from '../../../api/userApi';
+import { UserApi } from '../../../api/userApi/user';
 import { setCookie } from 'nookies';
 import { LoginDto } from '../../../api/userApi/types';
 import { useAppDispatch } from '../../../store/hooks';
 import { setUserData } from '../../../store/slices/user/user';
+import { Api } from '../../../api/userApi';
 
 interface LoginProps {
   onOpenRegister: () => void;
@@ -25,7 +26,7 @@ export const Login: FC<LoginProps> = ({ onOpenRegister }) => {
 
   const onSubmit = async (dto: LoginDto) => {
     try {
-      const response = await UserApi.login(dto);
+      const response = await Api().user.login(dto);
       setCookie(null, 'authToken', response.token, { maxAge: 30 * 24 * 60 * 60, path: '/' });
       dispatch(setUserData(response));
       setErrorMessage('');
