@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { Avatar, Button, IconButton, Paper } from '@material-ui/core';
 import Link from 'next/link';
 import SearchIcon from '@material-ui/icons/Search';
@@ -10,22 +10,30 @@ import { KeyboardArrowDownOutlined as ArrowBottom } from '@material-ui/icons';
 import Menu from '@material-ui/icons/Menu';
 import { AccountCircleOutlined as AccountIcon } from '@material-ui/icons';
 
-import styles from './Header.module.scss';
 import { AuthDialog } from '../AuthDialog';
 import { useAppSelector } from '../../store/hooks';
 import { selectUserData } from '../../store/slices/user/selectors/selector';
 
+import styles from './Header.module.scss';
+
 export const Header: FC = () => {
-  const [open, setOpen] = useState<boolean>(false);
+  const [authVisible, setAuthVisible] = useState<boolean>(false);
   const userData = useAppSelector(selectUserData);
 
   const openAuthDialog = () => {
-    setOpen(true);
+    setAuthVisible(true);
   };
 
   const closeAuthDialog = () => {
-    setOpen(false);
+    setAuthVisible(false);
   };
+
+  useEffect(() => {
+    if (authVisible && userData) {
+      setAuthVisible(false);
+    }
+  }, [authVisible, userData]);
+
   return (
     <Paper classes={{ root: styles.root }} elevation={0}>
       <div className="d-flex align-center">
@@ -74,7 +82,7 @@ export const Header: FC = () => {
           </div>
         )}
       </div>
-      {open && <AuthDialog onClose={closeAuthDialog} authVisible={open} />}
+      {authVisible && <AuthDialog onClose={closeAuthDialog} authVisible={authVisible} />}
     </Paper>
   );
 };
