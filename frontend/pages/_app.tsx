@@ -45,7 +45,12 @@ const getInitialProps = wrapper.getInitialAppProps((store) => async ({ ctx, Comp
 
     store.dispatch(setUserData(userData));
   } catch (error) {
-    console.log(error);
+    if (ctx.asPath === '/write') {
+      ctx.res.writeHead(302, {
+        Location: '/403',
+      });
+      ctx.res.end();
+    }
   }
   return {
     pageProps: {
