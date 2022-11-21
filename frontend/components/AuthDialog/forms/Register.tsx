@@ -9,7 +9,7 @@ import { setCookie } from 'nookies';
 import { Alert } from '@material-ui/lab';
 import { useAppDispatch } from '../../../store/hooks';
 import { setUserData } from '../../../store/slices/user/user';
-import { Api } from '../../../api/userApi';
+import { Api } from '../../../api';
 
 interface LoginFormProps {
   onOpenRegister: () => void;

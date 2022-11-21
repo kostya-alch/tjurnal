@@ -5,12 +5,11 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { LoginSchema } from '../../../utils/schemas/loginSchemaValidation';
 import { FormField } from '../../FormField';
 import { Alert } from '@material-ui/lab';
-import { UserApi } from '../../../api/userApi/user';
 import { setCookie } from 'nookies';
 import { LoginDto } from '../../../api/userApi/types';
 import { useAppDispatch } from '../../../store/hooks';
 import { setUserData } from '../../../store/slices/user/user';
-import { Api } from '../../../api/userApi';
+import { Api } from '../../../api';
 
 interface LoginProps {
   onOpenRegister: () => void;

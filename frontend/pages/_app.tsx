@@ -8,9 +8,8 @@ import { wrapper } from '../store/store';
 import 'macro-css';
 import '../styles/globals.scss';
 import { parseCookies } from 'nookies';
-import { UserApi } from '../api/userApi/user';
 import { setUserData } from '../store/slices/user/user';
-import { Api } from '../api/userApi';
+import { Api } from '../api';
 
 function App({ Component, pageProps }: AppProps) {
   return (

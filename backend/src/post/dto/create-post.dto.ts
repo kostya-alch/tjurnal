@@ -5,7 +5,7 @@ export class CreatePostDto {
   title: string;
 
   @IsArray()
-  body: string;
+  body: any[];
 
   @IsOptional()
   @IsArray()
